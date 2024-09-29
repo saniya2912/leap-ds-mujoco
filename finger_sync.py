@@ -7,7 +7,9 @@ class FingerSynchronizationDS:
 
     # Intermediate Dynamics DS
     def intermediate_ds(self, z, zd):
-        return -self.beta1 * (1 - np.exp(-self.beta2 * (z - zd))) / (1 + np.exp(-self.beta2 * (z - zd)))
+        """ Intermediate dynamic system for variable z. """
+        z_dot = -self.beta1 * (1 - np.exp(-self.beta2 * (z - zd))) / (1 + np.exp(-self.beta2 * (z - zd)))
+        return z_dot
 
     # Task-Space DS
     def task_space_ds(self, x, z, x1, x2, Ax=5):
