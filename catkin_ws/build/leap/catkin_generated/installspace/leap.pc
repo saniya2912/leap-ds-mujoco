@@ -1,0 +1,8 @@
+prefix=/leap-ds-control/catkin_ws/install
+
+Name: leap
+Description: Description of leap
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

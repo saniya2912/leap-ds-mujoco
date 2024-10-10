@@ -1,0 +1,22 @@
+<launch>
+    <!-- Set the location of the URDF file -->
+    <arg name="urdf_file" default="$(find leap)/leap_left_urdf/robot.urdf"/>
+
+    <!-- Load the URDF into the parameter server using 'textfile' -->
+    <param name="robot_description" textfile="$(arg urdf_file)"/>
+
+    <!-- Start Gazebo with the world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!-- Spawn the Leap Motion hand model in Gazebo -->
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_leap_hand" output="screen"
+          args="-param robot_description -urdf -model leap_hand -x 0 -y 0 -z 0.1"/>
+          
+    <!-- Optionally, load Leap Motion node -->
+    <node pkg="leap_motion" type="leap_motion_node" name="leap_motion" output="screen">
+        <param name="use_sim_time" value="true"/>
+    </node>
+</launch>
