@@ -1,0 +1,119 @@
+<robot name="onshape">
+
+  <link name="palm_lower">
+    <visual>
+      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="palm_lower.stl"/>
+      </geometry>
+      <material name="palm_lower_material">
+        <color rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="palm_lower.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.237" />
+      <inertia ixx="0.000354094" ixy="-0.000001193" ixz="-0.000002445" iyy="0.000260915" iyz="-0.000002905" izz="0.000529257" />
+    </inertial>
+  </link>
+
+  <link name="mcp_joint">
+    <visual>
+      <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051" rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
+      <geometry>
+        <mesh filename="mcp_joint.stl"/>
+      </geometry>
+      <material name="mcp_joint_material">
+        <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051" rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
+      <geometry>
+        <mesh filename="mcp_joint.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.044" />
+      <inertia ixx="0.000011499" ixy="0.000003049" ixz="0.000000121" iyy="0.000007796" iyz="0.000000112" izz="0.000014759" />
+    </inertial>
+  </link>
+
+  <link name="pip">
+    <visual>
+      <origin xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+      <geometry>
+        <mesh filename="pip.stl"/>
+      </geometry>
+      <material name="pip_material">
+        <color rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+      <geometry>
+        <mesh filename="pip.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.032" />
+      <inertia ixx="0.000004798" ixy="0.000000012" ixz="0.000000004" iyy="0.000002862" iyz="0.000000011" izz="0.000004234" />
+    </inertial>
+  </link>
+
+  <link name="dip">
+    <visual>
+      <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213" rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
+      <geometry>
+        <mesh filename="dip.stl"/>
+      </geometry>
+      <material name="dip_material">
+        <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213" rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
+      <geometry>
+        <mesh filename="dip.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.037" />
+      <inertia ixx="0.000005542" ixy="-0.000000607" ixz="-0.000000017" iyy="0.000005727" iyz="-0.000000023" izz="0.000006682" />
+    </inertial>
+  </link>
+
+  <link name="fingertip">
+    <visual>
+      <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666" rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
+      <geometry>
+        <mesh filename="fingertip.stl"/>
+      </geometry>
+      <material name="fingertip_material">
+        <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666" rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
+      <geometry>
+        <mesh filename="fingertip.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.016" />
+      <inertia ixx="0.000003368" ixy="0.000000115" ixz="0" iyy="0.000001556" iyz="0" izz="0.000002863" />
+    </inertial>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <origin xyz="-0.012200000000000007713 0.038099999999999994982 0.014500000000000000736" rpy="-1.570796326794896558 -1.006521266079633" />
