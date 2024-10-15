@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /leap-ds-control/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/aaditya/ITR/leap-ds-control/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /leap-ds-control/catkin_ws/build
+CMAKE_BINARY_DIR = /home/aaditya/ITR/leap-ds-control/catkin_ws/build
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ leap/CMakeFiles/std_msgs_generate_messages_py.dir/build: std_msgs_generate_messa
 .PHONY : leap/CMakeFiles/std_msgs_generate_messages_py.dir/build
 
 leap/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	cd /leap-ds-control/catkin_ws/build/leap && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : leap/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 leap/CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /leap-ds-control/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /leap-ds-control/catkin_ws/src /leap-ds-control/catkin_ws/src/leap /leap-ds-control/catkin_ws/build /leap-ds-control/catkin_ws/build/leap /leap-ds-control/catkin_ws/build/leap/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aaditya/ITR/leap-ds-control/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aaditya/ITR/leap-ds-control/catkin_ws/src /home/aaditya/ITR/leap-ds-control/catkin_ws/src/leap /home/aaditya/ITR/leap-ds-control/catkin_ws/build /home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap /home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : leap/CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

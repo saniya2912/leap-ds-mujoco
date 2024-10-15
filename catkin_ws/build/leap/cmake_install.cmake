@@ -1,8 +1,8 @@
-# Install script for directory: /leap-ds-control/catkin_ws/src/leap
+# Install script for directory: /home/aaditya/ITR/leap-ds-control/catkin_ws/src/leap
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/leap-ds-control/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/aaditya/ITR/leap-ds-control/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leap.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leap.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/leap/cmake" TYPE FILE FILES
-    "/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leapConfig.cmake"
-    "/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leapConfig-version.cmake"
+    "/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leapConfig.cmake"
+    "/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap/catkin_generated/installspace/leapConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/leap" TYPE FILE FILES "/leap-ds-control/catkin_ws/src/leap/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/leap" TYPE FILE FILES "/home/aaditya/ITR/leap-ds-control/catkin_ws/src/leap/package.xml")
 endif()
 

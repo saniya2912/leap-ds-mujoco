@@ -7,7 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/leap-ds-control/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD='/leap-ds-control/catkin_ws/build'
-export ROSLISP_PACKAGE_DIRECTORIES='/leap-ds-control/catkin_ws/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/leap-ds-control/catkin_ws/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/aaditya/ITR/leap-ds-control/catkin_ws/devel:$CMAKE_PREFIX_PATH"
+export PWD='/home/aaditya/ITR/leap-ds-control/catkin_ws/build'
+export ROS_PACKAGE_PATH="/home/aaditya/ITR/leap-ds-control/catkin_ws/src:$ROS_PACKAGE_PATH"

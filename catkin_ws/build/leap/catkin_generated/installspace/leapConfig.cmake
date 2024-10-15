@@ -67,14 +67,14 @@ set(leap_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(leap_SOURCE_PREFIX /leap-ds-control/catkin_ws/src/leap)
-  set(leap_DEVEL_PREFIX /leap-ds-control/catkin_ws/devel)
+  set(leap_SOURCE_PREFIX /home/aaditya/ITR/leap-ds-control/catkin_ws/src/leap)
+  set(leap_DEVEL_PREFIX /home/aaditya/ITR/leap-ds-control/catkin_ws/devel)
   set(leap_INSTALL_PREFIX "")
   set(leap_PREFIX ${leap_DEVEL_PREFIX})
 else()
   set(leap_SOURCE_PREFIX "")
   set(leap_DEVEL_PREFIX "")
-  set(leap_INSTALL_PREFIX /leap-ds-control/catkin_ws/install)
+  set(leap_INSTALL_PREFIX /home/aaditya/ITR/leap-ds-control/catkin_ws/install)
   set(leap_PREFIX ${leap_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /leap-ds-control/catkin_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/aaditya/ITR/leap-ds-control/catkin_ws/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
