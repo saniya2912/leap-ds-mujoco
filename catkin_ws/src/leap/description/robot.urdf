@@ -1,28 +1,28 @@
 <?xml version="1.0" ?>
-<robot name="onshape">
 
-  <link name="world">
+<robot name="leap_hand">
+
+  <link name="world"/>
     <joint name="virtual_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <parent link="world"/>
-      <child link="palm_lower"/>
+      <child link="base_link"/>
     </joint>
-   </link> 
 
-  <link name="palm_lower">
+  <link name="base_link">
     <visual>
-      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 -0 0" />
+      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 0 0" />
       <geometry>
-        <mesh filename="palm_lower.stl" />
+        <mesh filename="package://leap/description/palm_lower.stl" />
       </geometry>
       <material name="palm_lower_material">
         <color rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0" />
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 -0 0" />
+      <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134" rpy="0 0 0" />
       <geometry>
-        <mesh filename="palm_lower.stl" />
+        <mesh filename="package://leap/description/palm_lower.stl" />
       </geometry>
     </collision>
     <inertial>
@@ -36,7 +36,7 @@
     <visual>
       <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051" rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
       <geometry>
-        <mesh filename="mcp_joint.stl" />
+        <mesh filename="package://leap/description/mcp_joint.stl" />
       </geometry>
       <material name="mcp_joint_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
@@ -45,7 +45,7 @@
     <collision>
       <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051" rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
       <geometry>
-        <mesh filename="mcp_joint.stl" />
+        <mesh filename="package://leap/description/mcp_joint.stl" />
       </geometry>
     </collision>
     <inertial>
@@ -59,7 +59,7 @@
     <visual>
       <origin xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl" />
+        <mesh filename="package://leap/description/pip.stl" />
       </geometry>
       <material name="pip_material">
         <color rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
@@ -68,7 +68,7 @@
     <collision>
       <origin xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl" />
+        <mesh filename="package://leap/description/pip.stl" />
       </geometry>
     </collision>
     <inertial>
@@ -82,16 +82,16 @@
     <visual>
       <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213" rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
       <geometry>
-        <mesh filename="dip.stl" />
+        <mesh filename="package://leap/description/dip.stl" />
       </geometry>
-      <material name="dip_material">
+      <material name="package://leap/description/dip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
       </material>
     </visual>
     <collision>
       <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213" rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
       <geometry>
-        <mesh filename="dip.stl" />
+        <mesh filename="package://leap/description/dip.stl" />
       </geometry>
     </collision>
     <inertial>
@@ -105,7 +105,7 @@
     <visual>
       <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666" rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
       <geometry>
-        <mesh filename="fingertip.stl" />
+        <mesh filename="package://leap/description/fingertip.stl" />
       </geometry>
       <material name="fingertip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
@@ -114,7 +114,7 @@
     <collision>
       <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666" rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
       <geometry>
-        <mesh filename="fingertip.stl" />
+        <mesh filename="package://leap/description/fingertip.stl" />
       </geometry>
     </collision>
     <inertial>
@@ -134,7 +134,7 @@
 
   <joint name="1" type="revolute">
     <origin xyz="-0.0070952496528625457958 0.023057756134899472233 -0.01872240357846021927" rpy="1.5707963267948950037 1.5707963267948945596 0" />
-    <parent link="palm_lower" />
+    <parent link="base_link" />
     <child link="mcp_joint" />
     <axis xyz="0 0 -1" />
     <limit effort="0.95" velocity="8.48" lower="-0.314" upper="2.23" />
@@ -160,7 +160,7 @@
     <visual>
       <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032913786" rpy="1.6375789613220999807e-15 -1.0076465469034000467e-30 2.1209300131419907151e-61" />
       <geometry>
-        <mesh filename="mcp_joint.stl"/>
+        <mesh filename="package://leap/description/mcp_joint.stl"/>
       </geometry>
       <material name="mcp_joint_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -169,7 +169,7 @@
     <collision>
       <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032913786" rpy="1.6375789613220999807e-15 -1.0076465469034000467e-30 2.1209300131419907151e-61" />
       <geometry>
-        <mesh filename="mcp_joint.stl"/>
+        <mesh filename="package://leap/description/mcp_joint.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -183,7 +183,7 @@
     <visual>
       <origin xyz="0.0096433630922713280131 0.00029999999999999471534 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
       <material name="pip_material">
         <color rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0"/>
@@ -192,7 +192,7 @@
     <collision>
       <origin xyz="0.0096433630922713280131 0.00029999999999999471534 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -206,7 +206,7 @@
     <visual>
       <origin xyz="0.021133352895225002849 -0.0084321191467048653423 0.0097850881620952373519" rpy="-3.141592653589793116 2.1146933785271955805e-32 1.4408183216511868558e-31" />
       <geometry>
-        <mesh filename="dip.stl"/>
+        <mesh filename="package://leap/description/dip.stl"/>
       </geometry>
       <material name="dip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -215,7 +215,7 @@
     <collision>
       <origin xyz="0.021133352895225002849 -0.0084321191467048653423 0.0097850881620952373519" rpy="-3.141592653589793116 2.1146933785271955805e-32 1.4408183216511868558e-31" />
       <geometry>
-        <mesh filename="dip.stl"/>
+        <mesh filename="package://leap/description/dip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -229,7 +229,7 @@
     <visual>
       <origin xyz="0.01328642410853349623 -0.0061142383865420008027 0.014499999999999495931" rpy="3.141592653589793116 -4.3179597882835943107e-33 1.4408183216511868558e-31" />
       <geometry>
-        <mesh filename="fingertip.stl"/>
+        <mesh filename="package://leap/description/fingertip.stl"/>
       </geometry>
       <material name="fingertip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -238,7 +238,7 @@
     <collision>
       <origin xyz="0.01328642410853349623 -0.0061142383865420008027 0.014499999999999495931" rpy="3.141592653589793116 -4.3179597882835943107e-33 1.4408183216511868558e-31" />
       <geometry>
-        <mesh filename="fingertip.stl"/>
+        <mesh filename="package://leap/description/fingertip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -258,7 +258,7 @@
 
   <joint name="5" type="revolute">
     <origin xyz="-0.0070952496528625388569 -0.022392243865100525113 -0.018722403578460229678" rpy="1.570796326794896558 1.570796326794896558 0" />
-    <parent link="palm_lower" />
+    <parent link="base_link" />
     <child link="mcp_joint_2" />
     <axis xyz="0 0 -1"/>
     <limit effort="0.95" velocity="8.48" lower = "-0.314" upper = "2.23"/>
@@ -284,7 +284,7 @@
     <visual>
       <origin xyz="0.0084069022611744995133 0.0077662438597169963089 0.014657354985032913786" rpy="1.6375789613220999807e-15 -1.0059504988632626953e-30 5.729641584552035421e-32" />
       <geometry>
-        <mesh filename="mcp_joint.stl"/>
+        <mesh filename="package://leap/description/mcp_joint.stl"/>
       </geometry>
       <material name="mcp_joint_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -293,7 +293,7 @@
     <collision>
       <origin xyz="0.0084069022611744995133 0.0077662438597169963089 0.014657354985032913786" rpy="1.6375789613220999807e-15 -1.0059504988632626953e-30 5.729641584552035421e-32" />
       <geometry>
-        <mesh filename="mcp_joint.stl"/>
+        <mesh filename="package://leap/description/mcp_joint.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -307,7 +307,7 @@
     <visual>
       <origin xyz="0.0096433630922713314826 0.00029999999999998083755 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
       <material name="pip_material">
         <color rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0"/>
@@ -316,7 +316,7 @@
     <collision>
       <origin xyz="0.0096433630922713314826 0.00029999999999998083755 0.00078403401041737645627" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -330,7 +330,7 @@
     <visual>
       <origin xyz="0.021133352895225006318 -0.0084321191467048653423 0.0097850881620952373519" rpy="-3.141592653589793116 -1.4095651113919093005e-33 1.5565411607615035382e-32" />
       <geometry>
-        <mesh filename="dip.stl"/>
+        <mesh filename="package://leap/description/dip.stl"/>
       </geometry>
       <material name="dip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -339,7 +339,7 @@
     <collision>
       <origin xyz="0.021133352895225006318 -0.0084321191467048653423 0.0097850881620952373519" rpy="-3.141592653589793116 -1.4095651113919093005e-33 1.5565411607615035382e-32" />
       <geometry>
-        <mesh filename="dip.stl"/>
+        <mesh filename="package://leap/description/dip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -353,7 +353,7 @@
     <visual>
       <origin xyz="0.013286424108533501434 -0.0061142383865419869249 0.0144999999999994994" rpy="3.141592653589793116 8.6170716950575402125e-33 1.5565411607615035382e-32" />
       <geometry>
-        <mesh filename="fingertip.stl"/>
+        <mesh filename="package://leap/description/fingertip.stl"/>
       </geometry>
       <material name="fingertip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -362,7 +362,7 @@
     <collision>
       <origin xyz="0.013286424108533501434 -0.0061142383865419869249 0.0144999999999994994" rpy="3.141592653589793116 8.6170716950575402125e-33 1.5565411607615035382e-32" />
       <geometry>
-        <mesh filename="fingertip.stl"/>
+        <mesh filename="package://leap/description/fingertip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -382,7 +382,7 @@
 
   <joint name="9" type="revolute">
     <origin xyz="-0.0070952454426398371343 -0.067842243865100515521 -0.018722407666402932774" rpy="1.5707963267948950037 1.5707963267948945596 0" />
-    <parent link="palm_lower" />
+    <parent link="base_link" />
     <child link="mcp_joint_3" />
     <axis xyz="0 0 -1"/>
     <limit effort="0.95" velocity="8.48" lower = "-0.314" upper = "2.23"/>
@@ -408,7 +408,7 @@
     <visual>
       <origin xyz="-0.0053566369077286714317 0.00029999999999999991951 0.00078403401041737819099" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
       <material name="pip_material">
         <color rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0"/>
@@ -417,7 +417,7 @@
     <collision>
       <origin xyz="-0.0053566369077286714317 0.00029999999999999991951 0.00078403401041737819099" rpy="-1.570796326794896558 -1.570796326794896336 0" />
       <geometry>
-        <mesh filename="pip.stl"/>
+        <mesh filename="package://leap/description/pip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -431,7 +431,7 @@
     <visual>
       <origin xyz="0.011961920770611186859 -5.3082538364890297089e-16 -0.015852648956664199681" rpy="1.570796326794896558 1.6050198443300152637e-46 -3.9204996250525192755e-59" />
       <geometry>
-        <mesh filename="thumb_pip.stl"/>
+        <mesh filename="package://leap/description/thumb_pip.stl"/>
       </geometry>
       <material name="thumb_pip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -440,7 +440,7 @@
     <collision>
       <origin xyz="0.011961920770611186859 -5.3082538364890297089e-16 -0.015852648956664199681" rpy="1.570796326794896558 1.6050198443300152637e-46 -3.9204996250525192755e-59" />
       <geometry>
-        <mesh filename="thumb_pip.stl"/>
+        <mesh filename="package://leap/description/thumb_pip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -454,7 +454,7 @@
     <visual>
       <origin xyz="0.043968715707239175439 0.057952952973709198625 -0.0086286764493694757122" rpy="1.9428902930940098942e-16 3.2751579226442200773e-15 1.1123758529657360012e-46" />
       <geometry>
-        <mesh filename="thumb_dip.stl"/>
+        <mesh filename="package://leap/description/thumb_dip.stl"/>
       </geometry>
         <material name="thumb_dip_material">
         <color rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
@@ -463,7 +463,7 @@
     <collision>
       <origin xyz="0.043968715707239175439 0.057952952973709198625 -0.0086286764493694757122" rpy="1.9428902930940098942e-16 3.2751579226442200773e-15 1.1123758529657360012e-46" />
       <geometry>
-        <mesh filename="thumb_dip.stl"/>
+        <mesh filename="package://leap/description/thumb_dip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -477,7 +477,7 @@
     <visual>
       <origin xyz="0.062559538462667388381 0.078459682911396988469 0.048992911807332215068" rpy="4.3790577010156367543e-47 -3.3306690738754701143e-16 1.2042408677791935383e-46" />
       <geometry>
-        <mesh filename="thumb_fingertip.stl"/>
+        <mesh filename="package://leap/description/thumb_fingertip.stl"/>
       </geometry>
         <material name="thumb_fingertip_material">
         <color rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0"/>
@@ -486,7 +486,7 @@
     <collision>
       <origin xyz="0.062559538462667388381 0.078459682911396988469 0.048992911807332215068" rpy="4.3790577010156367543e-47 -3.3306690738754701143e-16 1.2042408677791935383e-46" />
       <geometry>
-        <mesh filename="thumb_fingertip.stl"/>
+        <mesh filename="package://leap/description/thumb_fingertip.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -498,7 +498,7 @@
 
   <joint name="12" type="revolute">
     <origin xyz="-0.069395249652862533996 -0.0012422438651005258004 -0.021622403578460215601" rpy="-8.2381766464939424156e-17 1.5707963267948956698 0" />
-    <parent link="palm_lower" />
+    <parent link="base_link" />
     <child link="pip_4" />
     <axis xyz="0 0 -1"/>
     <limit effort="0.95" velocity="8.48" lower = "-0.349" upper = "2.094"/> 
