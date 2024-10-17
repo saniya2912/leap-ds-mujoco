@@ -2,8 +2,10 @@
 
 <launch>
     <!-- Load the robot description from the URDF file -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find leap)/description/robot.urdf'" />
-    
+    <param name="robot_description" textfile="$(find leap)/description/robot.urdf" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+
     <!-- Launch the Joint State Publisher -->
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
     
