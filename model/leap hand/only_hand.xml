@@ -88,4 +88,33 @@
     </body>
     </body>
   </worldbody>
+
+<actuator>
+    <motor name="motor_1" joint="1"/>
+    <motor name="motor_0" joint="0"/>
+    <motor name="motor_2" joint="2"/>
+    <motor name="motor_3" joint="3"/>
+    <motor name="motor_5" joint="5"/>
+    <motor name="motor_4" joint="4"/>
+    <motor name="motor_6" joint="6"/>
+    <motor name="motor_7" joint="7"/>
+    <motor name="motor_9" joint="9"/>
+    <motor name="motor_8" joint="8"/>
+    <motor name="motor_10" joint="10"/>
+    <motor name="motor_11" joint="11"/>
+    <motor name="motor_12" joint="12"/>
+    <motor name="motor_13" joint="13"/>
+    <motor name="motor_14" joint="14"/>
+    <motor name="motor_15" joint="15"/>
+  </actuator>
+
+
+
+<contact>
+<exclude body1="palm" body2="mcp_joint"/>
+<exclude body1="palm" body2="mcp_joint_2"/>
+<exclude body1="palm" body2="mcp_joint_3"/>
+<exclude body1="palm" body2="pip_4"/>
+</contact>
+
 </mujoco>

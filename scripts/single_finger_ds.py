@@ -28,39 +28,39 @@ class ControlSystem:
             tau[i] = x_d[i] - (q[i] + q_dot[i])  # Simple PD control for demonstration
         return tau
 
-def main():
-    # Initialize parameters
-    beta1 = 1.0
-    beta2 = 5.0
-    n_fingers = 2  # Number of fingertips
-    n_joints = 4   # Joints per finger
-    z = 0.0
-    zd = 1.0
-    x = np.array([0.0, 0.0])  # Current position
-    x1 = np.array([-1.0, 0.0])  # Start point
-    x2 = np.array([1.0, 0.0])   # End point
-    q = np.zeros(n_joints)  # Joint positions
-    q_dot = np.zeros(n_joints)  # Joint velocities
+# def main():
+#     # Initialize parameters
+#     beta1 = 1.0
+#     beta2 = 5.0
+#     n_fingers = 2  # Number of fingertips
+#     n_joints = 4   # Joints per finger
+#     z = 0.0
+#     zd = 1.0
+#     x = np.array([0.0, 0.0])  # Current position
+#     x1 = np.array([-1.0, 0.0])  # Start point
+#     x2 = np.array([1.0, 0.0])   # End point
+#     q = np.zeros(n_joints)  # Joint positions
+#     q_dot = np.zeros(n_joints)  # Joint velocities
 
-    ds = DynamicSystem(beta1, beta2)
-    control = ControlSystem(n_joints)
+#     ds = DynamicSystem(beta1, beta2)
+#     control = ControlSystem(n_joints)
 
-    # Simulate control loop
-    for t in range(100):  # Example time steps
-        z_dot = ds.intermediate_ds(z, zd)
-        z += z_dot  # Update z
+#     # Simulate control loop
+#     for t in range(100):  # Example time steps
+#         z_dot = ds.intermediate_ds(z, zd)
+#         z += z_dot  # Update z
 
-        x_d = ds.task_space_ds(x, z, z_dot, x1, x2)  # Desired velocity in task space
-        tau = control.torque_control(x_d, q, q_dot)  # Control torques
+#         x_d = ds.task_space_ds(x, z, z_dot, x1, x2)  # Desired velocity in task space
+#         tau = control.torque_control(x_d, q, q_dot)  # Control torques
 
-        # Update joint positions and velocities (this is a placeholder)
-        q += q_dot * 0.1  # Update joint positions based on some dynamics
-        q_dot += tau * 0.1  # Update joint velocities based on torques
+#         # Update joint positions and velocities (this is a placeholder)
+#         q += q_dot * 0.1  # Update joint positions based on some dynamics
+#         q_dot += tau * 0.1  # Update joint velocities based on torques
 
-        # Update x based on joint positions (placeholder for actual robot kinematics)
-        x += 0.1 * x_d  # Update the position of the end-effector
+#         # Update x based on joint positions (placeholder for actual robot kinematics)
+#         x += 0.1 * x_d  # Update the position of the end-effector
 
-    print("Final positions:", q)
+#     print("Final positions:", q)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

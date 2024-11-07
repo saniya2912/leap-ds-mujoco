@@ -2,7 +2,7 @@ import mujoco
 import mujoco.viewer
 
 
-model = mujoco.MjModel.from_xml_path('/home/saniya/LEAP/leap_hand_mujoco/model/leap hand/only_hand.xml')
+model = mujoco.MjModel.from_xml_path('/home/iitgn-robotics/Saniya/leap-ds-control/model/leap hand/only_hand.xml')
 data = mujoco.MjData(model)
 
 
