@@ -1,2 +1,2 @@
-leap
+leap:leap_controller
 -DCATKIN_DEVEL_PREFIX=/home/aaditya/ITR/leap-ds-control/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/aaditya/ITR/leap-ds-control/catkin_ws/install -G Unix Makefiles
