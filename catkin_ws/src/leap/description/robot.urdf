@@ -1,11 +1,10 @@
 <?xml version="1.0" ?>
-<gazebo>
-  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-    <robotNamespace>/MYROBOT</robotNamespace>
-  </plugin>
-</gazebo>
-
 <robot name="leap_hand">
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/MYROBOT</robotNamespace>
+    </plugin>
+  </gazebo>
 
   <link name="world"/>
     <joint name="virtual_joint" type="fixed">
@@ -554,7 +553,7 @@
   <transmission name="transmission_joint0">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="0">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor0">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -565,7 +564,7 @@
   <transmission name="transmission_joint1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="1">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor1">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -576,7 +575,7 @@
   <transmission name="transmission_joint2">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="2">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor2">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -587,7 +586,7 @@
   <transmission name="transmission_joint3">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="3">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor3">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -598,7 +597,7 @@
   <transmission name="transmission_joint4">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="4">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor4">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -609,7 +608,7 @@
   <transmission name="transmission_joint5">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="5">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor5">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -620,7 +619,7 @@
   <transmission name="transmission_joint6">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="6">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor6">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -631,7 +630,7 @@
   <transmission name="transmission_joint7">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="7">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor7">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -642,7 +641,7 @@
   <transmission name="transmission_joint8">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="8">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor8">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -653,7 +652,7 @@
   <transmission name="transmission_joint9">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="9">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor9">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -664,7 +663,7 @@
   <transmission name="transmission_joint10">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="10">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor10">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -675,7 +674,7 @@
   <transmission name="transmission_joint11">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="11">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor11">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -686,7 +685,7 @@
   <transmission name="transmission_joint12">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="12">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor12">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -697,7 +696,7 @@
   <transmission name="transmission_joint13">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="13">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor13">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -708,7 +707,7 @@
   <transmission name="transmission_joint14">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="14">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor14">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -719,7 +718,7 @@
   <transmission name="transmission_joint15">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="15">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor15">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
