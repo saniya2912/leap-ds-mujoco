@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/aaditya/ITR/leap-ds-control/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap_moveit_config/cmake_install.cmake")
   include("/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap/cmake_install.cmake")
   include("/home/aaditya/ITR/leap-ds-control/catkin_ws/build/leap_controller/cmake_install.cmake")
 
