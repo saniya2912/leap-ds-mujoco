@@ -1,46 +1,58 @@
 controller_list:
-  - name: index_controller
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
-    default: True
-    joints:
-      - 1
-      - 0
-      - 2
-      - 3
   - name: index_finger_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
     joints:
-      - 1
-      - 0
-      - 2
-      - 3
+      - joint1
+      - joint0
+      - joint2
+      - joint3
   - name: middle_finger_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
     joints:
-      - 5
-      - 4
-      - 6
-      - 7
+      - joint5
+      - joint4
+      - joint6
+      - joint7
   - name: ring_finger_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
     joints:
-      - 9
-      - 8
-      - 10
-      - 11
+      - joint9
+      - joint8
+      - joint10
+      - joint11
   - name: thumb_finger_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
     joints:
-      - 12
-      - 13
-      - 14
-      - 15
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+  - name: leap_hand_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+      - joint9
+      - joint8
+      - joint10
+      - joint11

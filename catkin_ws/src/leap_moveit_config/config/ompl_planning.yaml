@@ -193,7 +193,7 @@ index_finger:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(1,0)
+  projection_evaluator: joints(joint1,joint0)
   longest_valid_segment_fraction: 0.005
 middle_finger:
   planner_configs:
@@ -224,7 +224,7 @@ middle_finger:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(5,4)
+  projection_evaluator: joints(joint5,joint4)
   longest_valid_segment_fraction: 0.005
 ring_finger:
   planner_configs:
@@ -255,7 +255,7 @@ ring_finger:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(9,8)
+  projection_evaluator: joints(joint9,joint8)
   longest_valid_segment_fraction: 0.005
 thumb_finger:
   planner_configs:
@@ -286,9 +286,9 @@ thumb_finger:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(12,13)
+  projection_evaluator: joints(joint12,joint13)
   longest_valid_segment_fraction: 0.005
-leap_combined:
+leap_hand:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -317,5 +317,5 @@ leap_combined:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(1,0)
+  projection_evaluator: joints(joint1,joint0)
   longest_valid_segment_fraction: 0.005

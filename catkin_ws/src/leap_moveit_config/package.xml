@@ -5,8 +5,8 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the leap_hand with the MoveIt Motion Planning Framework
   </description>
-  <author email="aaditya.nimkar@gmail.com">Aaditya Nimkar</author>
-  <maintainer email="aaditya.nimkar@gmail.com">Aaditya Nimkar</maintainer>
+  <author email="aaditya.nimkar@gmail.com">Aaditya NImkar</author>
+  <maintainer email="aaditya.nimkar@gmail.com">Aaditya NImkar</maintainer>
 
   <license>BSD</license>
 

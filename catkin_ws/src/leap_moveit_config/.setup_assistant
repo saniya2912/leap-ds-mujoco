@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/leap_hand.srdf
   CONFIG:
-    author_name: Aaditya Nimkar
+    author_name: Aaditya NImkar
     author_email: aaditya.nimkar@gmail.com
-    generated_timestamp: 1731068759
+    generated_timestamp: 1731130770

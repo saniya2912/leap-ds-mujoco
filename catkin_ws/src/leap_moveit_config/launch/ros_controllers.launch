@@ -6,6 +6,6 @@
 
   <!-- Load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="index_controller index_finger_controller middle_finger_controller ring_finger_controller thumb_finger_controller "/>
+    output="screen" args="index_finger_controller middle_finger_controller ring_finger_controller thumb_finger_controller leap_hand_controller "/>
 
 </launch>
