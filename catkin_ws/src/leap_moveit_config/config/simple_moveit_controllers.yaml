@@ -56,3 +56,174 @@ controller_list:
       - joint8
       - joint10
       - joint11
+  - name: index_v_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+  - name: middle_v_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+  - name: ring_v_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint9
+      - joint8
+      - joint10
+      - joint11
+  - name: thumb_v_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+  - name: leap_v_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+      - joint9
+      - joint8
+      - joint10
+      - joint11
+  - name: index_p_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+  - name: middle_p_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+  - name: ring_p_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint9
+      - joint8
+      - joint10
+      - joint11
+  - name: thumb_p_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+  - name: leap_p_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+      - joint9
+      - joint8
+      - joint10
+      - joint11
+  - name: index_trj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+  - name: middle_trj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+  - name: ring_trj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint9
+      - joint8
+      - joint10
+      - joint11
+  - name: thumb_trj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+  - name: leap_trj_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint1
+      - joint0
+      - joint2
+      - joint3
+      - joint12
+      - joint13
+      - joint14
+      - joint15
+      - joint5
+      - joint4
+      - joint6
+      - joint7
+      - joint9
+      - joint8
+      - joint10
+      - joint11
