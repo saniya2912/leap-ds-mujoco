@@ -51,7 +51,7 @@ def control_loop_step(robot, ds, dt):
 
 def control_loop(robot, dt, tolerance):
     target = sr.CartesianPose(robot.eef_pose.get_name(), robot.eef_pose.get_reference_frame())
-    target.set_position(0.5, 0.0, 0.75)
+    target.set_position(-0.03, -0.03, -0.02)
     target.set_orientation(Quaternion(axis=[0.0, 1.0, 0.0], radians=math.pi))
     ds = create_cartesian_ds(DYNAMICAL_SYSTEM_TYPE.POINT_ATTRACTOR)
     ds.set_parameter(sr.Parameter("attractor", target, sr.ParameterType.STATE, sr.StateType.CARTESIAN_POSE))
@@ -73,9 +73,9 @@ def control_loop(robot, dt, tolerance):
 
 def main():
     # Replace with your specific URDF path
-    urdf_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/home/aaditya/leap-ds-control/catkin_ws/src/leap/description/robot.urdf")
+    urdf_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/home/aaditya/leap-ds-control/leap hand/robot.urdf")
     
-    # Replace "franka" with your robot name if different
+    # Replace " " with your robot name if different
     robot = DummyRobotInterface("index_finger", urdf_path)
     
     control_loop(robot, timedelta(milliseconds=100), 1e-3)
