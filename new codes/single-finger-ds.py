@@ -5,101 +5,80 @@ import time
 from datetime import timedelta
 from dynamical_systems import create_cartesian_ds, DYNAMICAL_SYSTEM_TYPE
 from pyquaternion import Quaternion
-import mujoco_py
-import numpy as np
+from robot_model import Model, QPInverseVelocityParameters
 
-
-class MuJoCoRobotInterface:
-
-    def __init__(self, mujoco_model_path):
-        # Load the MuJoCo model
-        self.model = mujoco_py.load_model_from_path(mujoco_model_path)
-        self.sim = mujoco_py.MjSim(self.model)
-        self.viewer = mujoco_py.MjViewer(self.sim)  # Initialize the viewer
-        self.eef_name = "fingertip"  # Replace with the actual end-effector name in your model
+class DummyRobotInterface:
+    def __init__(self, robot_name, urdf_path):
+        self._robot = Model(robot_name, urdf_path)
         self.eef_pose = None
-        self.joint_positions = sr.JointPositions()
+        self.joint_positions = sr.JointPositions().Zero(robot_name, self._robot.get_joint_frames())
         self.read_robot_state()
 
     def read_robot_state(self):
-        # Update joint positions
-        joint_names = [self.model.joint_id2name(i) for i in range(self.model.njnt)]
-        joint_values = self.sim.data.qpos[:len(joint_names)]
-        self.joint_positions = sr.JointPositions("robot", joint_names, joint_values)
-
-        # Update end-effector pose
-        eef_position = self.sim.data.get_body_xpos(self.eef_name)
-        eef_orientation = self.sim.data.get_body_xquat(self.eef_name)
-        self.eef_pose = sr.CartesianPose(
-            self.eef_name, 
-            "world", 
-            position=eef_position, 
-            orientation=Quaternion(eef_orientation)
-        )
+        # this is a dummy robot, we assume the joint state is executed
+        self.eef_pose = self._robot.forward_kinematics(self.joint_positions)
 
     def send_control_command(self, desired_eef_twist, dt):
-        # Get current Jacobian for the end-effector
-        jacobian = np.zeros((6, self.model.nv))
-        mujoco_py.functions.mj_jacBody(
-            self.model, self.sim.data, jacobian, self.model.body_name2id(self.eef_name)
-        )
-
-        # Compute desired joint velocities using Jacobian pseudo-inverse
-        jacobian_pinv = np.linalg.pinv(jacobian[:3])  # Consider only positional part for simplicity
-        desired_velocity = desired_eef_twist.get_linear_velocity()
-        joint_velocities = np.dot(jacobian_pinv, desired_velocity)
-
-        # Apply joint velocities
-        self.sim.data.qvel[:len(joint_velocities)] = joint_velocities
-        self.sim.step()
-
-        # Render the simulation in the viewer
-        self.viewer.render()
-
+    # create the inverse velocity parameters and set the period of the control loop
+        parameters = QPInverseVelocityParameters()
+        parameters.dt = dt
+        
+        # apply the inverse velocity
+        desired_joint_velocities = self._robot.inverse_velocity(desired_eef_twist, self.joint_positions, parameters)
+        
+        # Extract positions and velocities
+        current_positions = self.joint_positions.get_positions()
+        velocity_values = desired_joint_velocities.get_velocities()
+        
+        # Compute new positions
+        new_positions = current_positions + dt * velocity_values
+        
+        # Update joint positions
+        self.joint_positions = sr.JointPositions(self.joint_positions.get_name(), 
+                                                self.joint_positions.get_names(), 
+                                                new_positions)
 
 def control_loop_step(robot, ds, dt):
-    # Read the robot state
+    # read the robot state
     robot.read_robot_state()
+    # print the state and eef pose
     print(robot.joint_positions)
     print(robot.eef_pose)
-
-    # Get the twist evaluated at current pose
+    # get the twist evaluated at current pose
     desired_twist = sr.CartesianTwist(ds.evaluate(robot.eef_pose))
-
-    # Send the desired twist to the robot
+    # send the desired twist to the robot
     robot.send_control_command(desired_twist, dt)
-
 
 def control_loop(robot, dt, tolerance):
     target = sr.CartesianPose(robot.eef_pose.get_name(), robot.eef_pose.get_reference_frame())
-    target.set_position(.5, .0, .75)
-    target.set_orientation(Quaternion(axis=[.0, 1., .0], radians=math.pi))
-
-    # Create dynamical system
+    target.set_position(0.5, 0.0, 0.75)
+    target.set_orientation(Quaternion(axis=[0.0, 1.0, 0.0], radians=math.pi))
     ds = create_cartesian_ds(DYNAMICAL_SYSTEM_TYPE.POINT_ATTRACTOR)
     ds.set_parameter(sr.Parameter("attractor", target, sr.ParameterType.STATE, sr.StateType.CARTESIAN_POSE))
-
-    # Loop until target is reached
+    
+    # loop until target is reached
     distance = sr.dist(robot.eef_pose, target, sr.CartesianStateVariable.POSE)
     while distance > tolerance:
-        control_loop_step(robot, ds, dt)
+        control_loop_step(robot, ds, dt.total_seconds())
         distance = sr.dist(robot.eef_pose, target, sr.CartesianStateVariable.POSE)
         print(f"Distance to attractor: {distance}")
         print("-----------")
         time.sleep(dt.total_seconds())
-
+    
     print("##### TARGET #####")
     print(target)
     print("##### CURRENT STATES #####")
     print(robot.joint_positions)
     print(robot.eef_pose)
 
-
 def main():
-    mujoco_model_path = "/home/aaditya/leap-ds-control/leap hand/index_finger.xml"  # Replace with your robot's MuJoCo XML file path
-    robot = MuJoCoRobotInterface(mujoco_model_path)
+    # Replace with your specific URDF path
+    urdf_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/home/aaditya/leap-ds-control/catkin_ws/src/leap/description/robot.urdf")
+    
+    # Replace "franka" with your robot name if different
+    robot = DummyRobotInterface("index_finger", urdf_path)
+    
     control_loop(robot, timedelta(milliseconds=100), 1e-3)
-
 
 if __name__ == "__main__":
     main()
