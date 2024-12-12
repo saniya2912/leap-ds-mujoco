@@ -8,6 +8,7 @@ import mujoco
 import mujoco.viewer as viewer
 import numpy as np
 import state_representation as sr
+from robot_model import Model, QPInverseVelocityParameters
 
 class MuJoCoRobotInterface:
     def __init__(self, model_path):
@@ -20,10 +21,9 @@ class MuJoCoRobotInterface:
         self.eef_pose = None
         self.joint_positions = None
         self.robot_name = "mujoco_robot"  # Placeholder robot name
-        self.target_marker = None
         self.read_robot_state()
 
-    def read_robot_state(self):
+    """def read_robot_state(self):
         # Get joint positions
         joint_positions = self.data.qpos[:self.model.njnt]
         joint_names = [mujoco.mj_id2name(self.model, mujoco.mjtObj.mjOBJ_JOINT, i) for i in range(self.model.njnt)]
@@ -37,10 +37,22 @@ class MuJoCoRobotInterface:
         eef_body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "fingertip")
         eef_position = self.data.xpos[eef_body_id]
         eef_orientation = self.data.xquat[eef_body_id]
-        return sr.CartesianPose(self.robot_name, eef_position, eef_orientation, "world")
+        return sr.CartesianPose(self.robot_name, eef_position, eef_orientation, "world")"""
 
+    def read_robot_state(self):
+        # this is a dummy robot, we assume the joint state is executed
+        self.eef_pose = self._robot.forward_kinematics(self.joint_positions)
 
     def send_control_command(self, desired_eef_twist, dt):
+        # create the inverse velocity parameters and set the period of the control loop
+        parameters = QPInverseVelocityParameters()
+        parameters.dt = dt
+        # apply the inverse velocity
+        desired_joint_velocities = self._robot.inverse_velocity(desired_eef_twist, self.joint_positions, parameters)
+        # integrate the new position
+        self.joint_positions = dt * desired_joint_velocities + self.joint_positions
+
+    """def send_control_command(self, desired_eef_twist, dt):
     # Compute position and rotation Jacobians
         jacp = np.zeros((3, self.model.nv))
         jacr = np.zeros((3, self.model.nv))
@@ -62,39 +74,21 @@ class MuJoCoRobotInterface:
         self.viewer.sync()
 
         # Update joint positions
-        self.read_robot_state()
-
-
-def set_target_marker(self, target_position):
-        # Add a visual marker for the target position
-        if self.target_marker is None:
-            self.target_marker = np.zeros(3)
-        self.target_marker[:] = target_position
-
-        # Adding marker information for the green sphere
-        green_sphere_position = target_position + np.array([-0.03, -0.03, -0.02]) 
-        self.model.geom_pos = np.vstack((self.model.geom_pos, green_sphere_position))
-        self.model.geom_size = np.vstack((self.model.geom_size, [0.01, 0.01, 0.01]))  # Sphere size
-        self.model.geom_rgba = np.vstack((self.model.geom_rgba, [0, 1, 0, 1]))  # Green color
-        self.model.geom_type = np.append(self.model.geom_type, mujoco.mjtGeom.mjGEOM_SPHERE)
-
-        self.viewer.sync()
+        self.read_robot_state()"""
 
 
 def control_loop_step(robot, ds, dt):
     robot.read_robot_state()
     print(robot.joint_positions)
     print(robot.eef_pose)
-
     desired_twist = sr.CartesianTwist(ds.evaluate(robot.eef_pose))
     robot.send_control_command(desired_twist, dt)
 
 
 def control_loop(robot, dt, tolerance):
     target = sr.CartesianPose(robot.eef_pose.get_name(), robot.eef_pose.get_reference_frame())
-    target.set_position(-0.03, -0.03, -0.02)
+    target.set_position(0.5, 0.0, 0.5)
     target.set_orientation(Quaternion(axis=[0.0, 1.0, 0.0], radians=math.pi))
-
     ds = create_cartesian_ds(DYNAMICAL_SYSTEM_TYPE.POINT_ATTRACTOR)
     ds.set_parameter(sr.Parameter("attractor", target, sr.ParameterType.STATE, sr.StateType.CARTESIAN_POSE))
 

@@ -51,3 +51,9 @@
     <!-- <key name="home" qpos="0 0 0 0" ctrl="0 0 0 0"/> -->
   </keyframe>
 </mujoco>
+
+
+<worldbody>
+<!-- target position marker-->
+  <geom name="green_sphere" pos="0.05, 0.05, 0.05" size="0.01" type="sphere" rgba="0 1 0 1"/>
+</worldbody>
