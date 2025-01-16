@@ -28,20 +28,3 @@ python main.py
 ```
 
 3. Follow the on-screen instructions to perform multifinger grasping tasks.
-
-## Contributing
-
-We welcome contributions from the community. Please fork the repository and submit pull requests with your improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgements
-
-- The Leap Motion team for providing an excellent hand tracking device.
-- The open-source community for their valuable contributions and support.
-
-## Contact
-
-For any questions or inquiries, please contact the project maintainer at `aaditya@example.com`.
