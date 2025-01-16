@@ -1,0 +1,28 @@
+<launch>
+  <!-- Set the location of the URDF file -->
+  <arg name="urdf_file" default="$(find leap)/description/robot.urdf"/>
+
+  <!-- Load the URDF into the parameter server -->
+  <param name="robot_description" textfile="$(arg urdf_file)"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find leap_controller)/config/leap_controller.yaml" command="load"/>
+
+  <!-- load the controller manager -->
+  <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
+    output="screen" ns="/leap"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/leap" args="position_controller_0 position_controller_1 position_controller_2 position_controller_3 position_controller_4 position_controller_5 position_controller_6 position_controller_7 position_controller_8 position_controller_9 position_controller_10 position_controller_11 position_controller_12 position_controller_13 position_controller_14 position_controller_15 joint_state_controller"/>
+     
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/leap/joint_states" />
+  </node>
+  
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" output="screen"
+  args="-param robot_description -urdf -model my_robot -x 0 -y 0 -z 0.5"/>
+
+</launch>

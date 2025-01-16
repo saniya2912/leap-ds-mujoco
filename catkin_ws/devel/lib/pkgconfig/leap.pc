@@ -1,0 +1,8 @@
+prefix=/home/aaditya/ITR/leap-ds-control/catkin_ws/devel
+
+Name: leap
+Description: Description of leap
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

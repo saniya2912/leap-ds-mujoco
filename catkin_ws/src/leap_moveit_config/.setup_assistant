@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: leap
+    relative_path: description/robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/leap_hand.srdf
+  CONFIG:
+    author_name: Aaditya NImkar
+    author_email: aaditya.nimkar@gmail.com
+    generated_timestamp: 1731400249

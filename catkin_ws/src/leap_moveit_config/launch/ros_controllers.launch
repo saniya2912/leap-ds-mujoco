@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find leap_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="index_finger_controller middle_finger_controller ring_finger_controller thumb_finger_controller leap_hand_controller index_v_controller middle_v_controller ring_v_controller thumb_v_controller leap_v_controller index_p_controller middle_p_controller ring_p_controller thumb_p_controller leap_p_controller "/>
+
+</launch>
